@@ -2,22 +2,23 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ButtonAdd from '../UI/ButtonAdd';
 import { uiActions } from '../../store/slices/uiSlice';
+import CategoryItem from './CategoryItem';
 const CategoryList = (props) => {
 	const categories = useSelector((state) => state.todo.categories);
 	const dispatch = useDispatch();
 
 	const categoryList = categories.map((category) => {
 		return (
-			<li
-				className='w-[100%] max-w-[21.875rem] h-[2.625rem] bg-[#1264A3] py-1 my-2 flex flex-row flex-shrink rounded-[0.3125rem] text-white'
+			<CategoryItem
+				handleNoteSubmit={props.handleNoteSubmit}
 				key={category.id}
-			>
-				
-				{category.title}  
-			</li>
+				id={category.id}
+				title={category.title}
+				note={category.notes}
+			/>
 		);
 	});
-//TODO Category LI Component to pass Id for Filtering Notes
+	//TODO Category LI Component to pass Id for Filtering Notes
 	const onAddCategoryHandler = () => {
 		dispatch(uiActions.toggle());
 	};

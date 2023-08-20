@@ -11,6 +11,7 @@ const uiSlice = createSlice({
 		toggle: (state) => {
 			state.form = !state.form;
 		},
+		
 		showNotification(state, action) {
 			state.notification = {
 				status: action.payload.status,

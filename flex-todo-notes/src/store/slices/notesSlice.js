@@ -26,7 +26,11 @@ const saveState = state =>{
 
 
 const initialState = loadState() || {
-	categories: []
+	categories: [
+		
+	],
+	noteForm:false,
+	noteDetails:false
 }
 const NotesSlice = createSlice({
 	name: 'notes',
@@ -46,21 +50,48 @@ const NotesSlice = createSlice({
 			}  //Update Local Storage
 			
 		},
+		noteform: (state,action)=>{
+			const {notes,categoryId}=action.payload
 
-		addNote:(state,action)=>{
-			const {categoryId,noteId,title,content}= action.payload;   // <NoteForm categoryId={category.id} />
+
 			const category = state.categories.find(cate=> cate.id === categoryId)
 
 			if (category) {
-				category.notes.push({
-					
-					noteId,
-					title,
-					content,
-					
+				state.noteform=notes
+				
+			}
+			saveState(state)
 
-				})
-				saveState(state)  //Update Local Storage
+
+		},
+
+		
+		addNote:(state,action)=>{
+			console.log(action.payload)
+			const {id,title,content ,noteId}= action.payload;   // <NoteForm categoryId={category.id} />
+			const category = state.categories.find(cate=> cate.id === id)
+
+			if (category) {
+				const existingNoteIndex = category.notes.findIndex(note => note.id === noteId);
+
+				if (existingNoteIndex !== -1) {
+					// Update existing note's content
+					category.notes[existingNoteIndex].content = content;
+				  } 
+				  else {
+					category.notes.push({
+					
+						id:Date.now(),
+						title,
+						content,
+						
+	
+					})
+				  }
+				
+				saveState(state)  //Update Local 
+				
+
 
 				
 			}
@@ -88,6 +119,7 @@ const NotesSlice = createSlice({
 export const {
 	addCategory,
 	addNote,
+	noteform,
 	deleteNote,
 	deleteCategory,
   } = NotesSlice.actions;
