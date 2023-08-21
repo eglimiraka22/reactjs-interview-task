@@ -7,16 +7,16 @@
 
 # Project Details
 
-`1` This project is build using redux toolkit  
-`2` store Folder have inside the slices folder with all the necessary reducers to store the data and to save them in local storage
-`3` Components folder where all the actions take place. 
-`4` Category Components was the first one build to manage the categories  and add notes based on the selected category
-`5` Notes Components show all the notes based on the selected category id , create notes based on category and show 
-note details for the selected note id /
-`6` Note details component is able to modify a note content or to delete the note
-`7` UI folder keeps all the reusable components such as type of buttons used in the web app
-`8` Unit testing done to test the most important components and if there is any bug in the app
-`9` Application is build using Tailwind Css and module.css for the Category PopOut Form
+`1` This project is build using redux toolkit   \
+`2` store Folder have inside the slices folder with all the necessary reducers to store the data and to save them in local storage \
+`3` Components folder where all the actions take place.  \
+`4` Category Components was the first one build to manage the categories  and add notes based on the selected category \
+`5` Notes Components show all the notes based on the selected category id , create notes based on category and show  \
+note details for the selected note id \
+`6` Note details component is able to modify a note content or to delete the note \
+`7` UI folder keeps all the reusable components such as type of buttons used in the web app \
+`8` Unit testing done to test the most important components and if there is any bug in the app \
+`9` Application is build using Tailwind Css and module.css for the Category PopOut Form \
 
 ## This is a Todo Simple Implementation App build for Flex Business Solutions 
 
