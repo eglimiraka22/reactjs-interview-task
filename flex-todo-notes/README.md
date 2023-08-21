@@ -16,9 +16,9 @@ note details for the selected note id \
 `6` Note details component is able to modify a note content or to delete the note \
 `7` UI folder keeps all the reusable components such as type of buttons used in the web app \
 `8` Unit testing done to test the most important components and if there is any bug in the app \
-`9` Application is build using Tailwind Css and module.css for the Category PopOut Form \
+`9` Application is build using Tailwind Css and module.css for the Category PopOut Form 
 
-## This is a Todo Simple Implementation App build for Flex Business Solutions 
+## This is a  Simple  Todo Implementation App build for Flex Business Solutions 
 
 `Relating to the task please add answers to the following questions`
 
@@ -29,7 +29,7 @@ This is a simple Todo App but to make the app more secure there  we can consider
 `1 - Secure Backend` \
 `2 - Authentication and Authorization` \
 `3 - Error Handling messages` \
-`4 - Serve the app over HTTPS to encrypt communication between client and server ` \
+`4 - Serve the app over HTTPS to encrypt communication between client and server ` 
 
 
 ### 2- How would you make this solution scale to millions of records?
@@ -38,18 +38,27 @@ This is a simple Todo App but to make the app more secure there  we can consider
 `1 - Using the right database to handle the records` \
 `2 - A backend Server to handle the requests done by the clients` \
 `3 - Virtual Scrolling to handle larg amount of records` \
-`4 - Optimized Queries or Fetching Functions to retrive only the necessary data` \
-
-
+`4 - Optimized Queries or Fetching Functions to retrive only the necessary data` 
+ # Screenshoots of the Todo App
+` - Show Notes on Selected Category and make UI changes based on selected category`
 ![Alt text](src/assets/TodoMain.png)
 
 #
+
+` - Create note with a simple validation for title and Content`
+
 ![Alt text](src/assets/TodoValidation.png)
 
 #
 ![Alt text](src/assets/TodoNote.png)
 
+` - Note details to be able to modify  or to delete the selected note`
+
+
 ![Alt text](src/assets/NoteDetails.png)
+
+` - Filtering Notes based on the selected Category`
+
 
 ![Alt text](src/assets/FilterNotes.png)
 # Getting Started with Create React App
