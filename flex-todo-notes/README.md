@@ -26,19 +26,19 @@ note details for the selected note id /
 
 This is a simple Todo App but to make the app more secure there  we can consider implementing the following measures:
 
-`1 - Secure Backend`
-`2 - Authentication and Authorization`
-`3 - Error Handling messages`
-`4 - Serve the app over HTTPS to encrypt communication between client and server `
+`1 - Secure Backend` \
+`2 - Authentication and Authorization` \
+`3 - Error Handling messages` \
+`4 - Serve the app over HTTPS to encrypt communication between client and server ` \
 
 
 ### 2- How would you make this solution scale to millions of records?
 
 
-`1 - Using the right database to handle the records`
-`2 - A backend Server to handle the requests done by the clients`
-`2 - Virtual Scrolling to handle larg amount of records`
-`3 - Optimized Queries or Fetching Functions to retrive only the necessary data`
+`1 - Using the right database to handle the records` \
+`2 - A backend Server to handle the requests done by the clients` \
+`3 - Virtual Scrolling to handle larg amount of records` \
+`4 - Optimized Queries or Fetching Functions to retrive only the necessary data` \
 
 
 ![Alt text](src/assets/TodoMain.png)
