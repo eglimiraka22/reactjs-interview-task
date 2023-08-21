@@ -4,13 +4,13 @@ import NoteItem from './NoteItem';
 
 const Notes = ({ categoryId, onNoteClick, filterValue }) => {
   const selectedCategory = useSelector((state) =>
-    state.todo.categories.find((cat) => cat.id === categoryId)
+    state.todo.categories.find((cat) => cat.id === categoryId)  //Get the Category Id of note using props and Use Selector
   );
 
   const [filteredNotes, setFilteredNotes] = useState([]);
 
   useEffect(() => {
-    if (selectedCategory) {
+    if (selectedCategory) {   //Filtering notes based on selected category
       const notes = selectedCategory.notes.filter((note) =>
         note.title.toLowerCase().includes(filterValue.toLowerCase())
       );
@@ -19,7 +19,7 @@ const Notes = ({ categoryId, onNoteClick, filterValue }) => {
   }, [selectedCategory, filterValue]);
 
   if (!selectedCategory) {
-    return <li>no data</li>; // Return null or an appropriate message if category is not found
+    return <li className='relative  justify-center items-center text-left  font-mono text-xl '>Select Category</li>; // Return null or an appropriate message if category is not found
   }
 
   if (selectedCategory.notes.length === 0) {
@@ -49,6 +49,6 @@ const Notes = ({ categoryId, onNoteClick, filterValue }) => {
     />
   ));
 
-  return <div>{filterValue ? notesData : allNotesData}</div>;
+  return <div className=' overflow-y-scroll h-[100%] max-h-[80vh]'>{filterValue ? notesData : allNotesData}</div>;
 };
 export default Notes;

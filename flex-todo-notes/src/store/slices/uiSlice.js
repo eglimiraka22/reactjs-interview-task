@@ -4,7 +4,7 @@ const uiSlice = createSlice({
 	name: 'ui',
 	initialState: {
 		form: false,
-		notification: null,
+		notification: null,     //If sending http req 
 	},
 
 	reducers: {

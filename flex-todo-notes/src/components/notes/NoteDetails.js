@@ -3,20 +3,20 @@ import { useDispatch } from 'react-redux';
 import { addNote, deleteNote } from '../../store/slices/notesSlice';
 import DiscardButton from '../UI/DiscardButton';
 import NoteButton from '../UI/NoteButton';
-const NoteDetails = ({ categoryId, note, onDeletionComplete }) => {
+const NoteDetails = ({ categoryId, note, onNoteDetailsComplete }) => {
 	const dispatch = useDispatch();
-	const [contentNote, setContent] = useState(note.content);
+	const [contentNote, setContent] = useState(note.content); ///To update the Note Content Details
 
 	useEffect(() => {
 		setContent(note.content);
-	}, [note]);
+	}, [note]);  //Get Current Note Content from the Props
   
 	const handleDeleteNote = () => {
 		dispatch(deleteNote({ categoryId, noteId: note.id }));
-		onDeletionComplete();
+		onNoteDetailsComplete();
 	};
 
-	const handleUpdateNote = () => {
+	const handleUpdateNote = () => {    //Modify a note content  by passing the updated content and checking in Store if note exists
 		dispatch(
 			addNote({
 				id: categoryId,
@@ -25,7 +25,7 @@ const NoteDetails = ({ categoryId, note, onDeletionComplete }) => {
 				noteId: note.id,
 			})
 		);
-		onDeletionComplete();
+		onNoteDetailsComplete();
 	};
 
 	if (!note) {
@@ -35,7 +35,7 @@ const NoteDetails = ({ categoryId, note, onDeletionComplete }) => {
 	return (
 		<div className='note-details flex flex-col w-full h-full py-4'>
 			<div className='flex flex-col h-full w-full'>
-				<h2>{note.title}</h2>
+				<h2 className='text-xl font-serif border-b-2 py-1'>{note.title}</h2>
 				<textarea
 					type='text'
 					placeholder='Write your note here...'

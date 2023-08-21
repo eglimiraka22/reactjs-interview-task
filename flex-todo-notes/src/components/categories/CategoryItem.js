@@ -1,37 +1,94 @@
-import React from 'react'
-import {  useDispatch} from 'react-redux';
+import React from 'react';
+import { useDispatch } from 'react-redux';
 import { noteform } from '../../store/slices/notesSlice';
 
-const CategoryItem = (props) => {
+const CategoryItem = ({ id, title, isSelected, handleNoteSubmit }) => {
+	const dispatch = useDispatch();
+	const showNotes = false;
 
-	const dispatch = useDispatch()
-const showNotes = false
+	const handleNote = (e) => {
+		e.preventDefault();
+		handleNoteSubmit(id);
+		dispatch(
+			noteform({
+				notes: showNotes,
+				categoryId: id,
+			})
+		);
+	};
 
-    const handleNote = (e)=>{
-        e.preventDefault();
-        props.handleNoteSubmit(props.id)
-        dispatch(noteform({
-          notes:showNotes,
-          categoryId :props.id
-        }))
-
-    }
-  return (
-
-
-   
-    <React.Fragment>
-        <li onClick={handleNote}
-				className='w-[100%] max-w-[21.875rem] h-[2.625rem] bg-[#1264A3] py-1 my-2 flex flex-row flex-shrink rounded-[0.3125rem] text-white'
-				key={props.id}
+	return (
+		<React.Fragment>
+			<li
+				onClick={handleNote}
+				className={`w-[100%] max-w-[21.875rem] h-fit min-h-[2.625rem] py-1 px-2 justify-between items-center gap-4 my-2 flex flex-row flex-shrink rounded-[0.3125rem] ${
+					isSelected ? 'bg-[#F8F8FA] text-[#323338]' : 'bg-[#1264A3] text-white'
+				}`}
+				key={id}
 			>
-				
-				{props.title}  
+				<p className='flex w-full p-1 gap-3'>
+					{isSelected ? (
+						<svg
+							xmlns='http://www.w3.org/2000/svg'
+							width='30'
+							height='22'
+							viewBox='0 0 30 22'
+							fill='none'
+						>
+							<path
+								d='M2.25 22C1.65 22 1.125 21.788 0.675 21.3641C0.225 20.9401 0 20.4646 0 19.9375V2.0625C0 1.53542 0.225 1.0599 0.675 0.635938C1.125 0.211979 1.65 0 2.25 0H11.8125C12.1125 0 12.4062 0.0572917 12.6937 0.171875C12.9812 0.286458 13.225 0.435416 13.425 0.61875L15 2.0625H27.75C28.325 2.0625 28.8438 2.27448 29.3063 2.69844C29.7688 3.1224 30 3.59792 30 4.125V19.9375C30 20.4646 29.7688 20.9401 29.3063 21.3641C28.8438 21.788 28.325 22 27.75 22H2.25Z'
+								fill='#323338'
+							/>
+						</svg>
+					) : (
+						<svg
+							xmlns='http://www.w3.org/2000/svg'
+							width='30'
+							height='22'
+							viewBox='0 0 30 22'
+							fill='none'
+						>
+							<path
+								d='M2.25 22C1.65 22 1.125 21.788 0.675 21.3641C0.225 20.9401 0 20.4646 0 19.9375V2.0625C0 1.53542 0.225 1.0599 0.675 0.635938C1.125 0.211979 1.65 0 2.25 0H11.8125C12.1125 0 12.4062 0.0572917 12.6937 0.171875C12.9812 0.286458 13.225 0.435416 13.425 0.61875L15 2.0625H27.75C28.325 2.0625 28.8438 2.27448 29.3063 2.69844C29.7688 3.1224 30 3.59792 30 4.125V19.9375C30 20.4646 29.7688 20.9401 29.3063 21.3641C28.8438 21.788 28.325 22 27.75 22H2.25Z'
+								fill='white'
+							/>
+						</svg>
+					)}
+					{title}
+				</p>
+
+				<p className='text-right justify-end'>
+					{isSelected ? (
+						<svg
+							xmlns='http://www.w3.org/2000/svg'
+							width='7'
+							height='12'
+							viewBox='0 0 7 12'
+							fill='none'
+						>
+							<path
+								d='M2.60762 11.0465L6.55327 7.07613C6.69487 6.93428 6.80722 6.76571 6.88388 6.58012C6.96054 6.39452 7 6.19553 7 5.99457C7 5.79361 6.96054 5.59463 6.88388 5.40903C6.80722 5.22343 6.69487 5.05487 6.55327 4.91301L2.6037 0.942687C2.38919 0.730097 2.11701 0.585905 1.8213 0.528191C1.52559 0.470476 1.21952 0.501807 0.941452 0.618259C0.663386 0.734711 0.425711 0.931099 0.25823 1.18279C0.0907491 1.43449 0.000917634 1.73029 -4.13811e-07 2.0331L-6.67149e-08 9.97374C0.00130082 10.2769 0.0919955 10.5729 0.260616 10.8242C0.429236 11.0755 0.668209 11.271 0.947318 11.3858C1.22643 11.5006 1.53314 11.5297 1.82867 11.4693C2.1242 11.4089 2.39527 11.2617 2.60762 11.0465Z'
+								fill='#323338'
+							/>
+						</svg>
+					) : (
+						<svg
+							xmlns='http://www.w3.org/2000/svg'
+							width='11'
+							height='8'
+							viewBox='0 0 11 8'
+							fill='none'
+						>
+							<path
+								d='M0.453545 3.10762L4.42386 7.05327C4.56572 7.19487 4.73429 7.30722 4.91988 7.38388C5.10548 7.46054 5.30447 7.5 5.50543 7.5C5.70639 7.5 5.90537 7.46054 6.09097 7.38388C6.27657 7.30722 6.44513 7.19487 6.58699 7.05327L10.5573 3.1037C10.7699 2.88919 10.9141 2.61701 10.9718 2.3213C11.0295 2.0256 10.9982 1.71952 10.8817 1.44145C10.7653 1.16339 10.5689 0.925712 10.3172 0.758231C10.0655 0.59075 9.76971 0.500918 9.4669 0.5L1.52626 0.5C1.2231 0.501301 0.927139 0.591996 0.675795 0.760616C0.424451 0.929236 0.229014 1.16821 0.114195 1.44732C-0.000624443 1.72643 -0.0296677 2.03314 0.0307356 2.32867C0.0911389 2.6242 0.238277 2.89527 0.453545 3.10762Z'
+								fill='white'
+							/>
+						</svg>
+					)}
+				</p>
 			</li>
+		</React.Fragment>
+	);
+};
 
-
-    </React.Fragment>
-  )
-}
-
-export default CategoryItem
+export default CategoryItem;

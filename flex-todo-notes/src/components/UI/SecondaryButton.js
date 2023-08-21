@@ -1,15 +1,19 @@
 import React from 'react';
 
-const SecondaryButton = (props) => {
+const SecondaryButton = ({ className = '', onClick, text }) => {
 	return (
-		<div className={`flex  relative items-center justify-end  w-[100%] max-w-[7.5rem]  h-[2rem] p-1   flex-shrink-0 rounded-[0.3125rem] bg-[#${props.color}]`}>
+		<div
+			className={
+				`flex  relative items-center justify-end  w-[100%]   h-[2rem] p-1   flex-shrink-0 rounded-[0.3125rem] ` +
+				className
+			}
+		>
 			<button
-				onClick={props.onClick}
+				onClick={onClick}
 				className='text-white    text-[0.875rem] w-full   justify-center  border-r '
 			>
-				{props.text}{' '}
+				{text}{' '}
 			</button>
-		
 		</div>
 	);
 };

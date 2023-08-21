@@ -1,3 +1,57 @@
+## Packages Installed
+
+`@reduxjs/toolkit`
+`react-redux`
+`tailwind`
+
+
+# Project Details
+
+`1` This project is build using redux toolkit  
+`2` store Folder have inside the slices folder with all the necessary reducers to store the data and to save them in local storage
+`3` Components folder where all the actions take place. 
+`4` Category Components was the first one build to manage the categories  and add notes based on the selected category
+`5` Notes Components show all the notes based on the selected category id , create notes based on category and show 
+note details for the selected note id /
+`6` Note details component is able to modify a note content or to delete the note
+`7` UI folder keeps all the reusable components such as type of buttons used in the web app
+`8` Unit testing done to test the most important components and if there is any bug in the app
+`9` Application is build using Tailwind Css and module.css for the Category PopOut Form
+
+## This is a Todo Simple Implementation App build for Flex Business Solutions 
+
+`Relating to the task please add answers to the following questions`
+
+### 1- How might you make this app more secure?
+
+This is a simple Todo App but to make the app more secure there  we can consider implementing the following measures:
+
+`1 - Secure Backend`
+`2 - Authentication and Authorization`
+`3 - Error Handling messages`
+`4 - Serve the app over HTTPS to encrypt communication between client and server `
+
+
+### 2- How would you make this solution scale to millions of records?
+
+
+`1 - Using the right database to handle the records`
+`2 - A backend Server to handle the requests done by the clients`
+`2 - Virtual Scrolling to handle larg amount of records`
+`3 - Optimized Queries or Fetching Functions to retrive only the necessary data`
+
+
+![Alt text](src/assets/TodoMain.png)
+
+#
+![Alt text](src/assets/TodoValidation.png)
+
+#
+![Alt text](src/assets/TodoNote.png)
+
+![Alt text](src/assets/NoteDetails.png)
+
+![Alt text](src/assets/FilterNotes.png)
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

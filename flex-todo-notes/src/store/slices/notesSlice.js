@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-
+// Get Data From LocalStorage
 const loadState = ()=>{
 	try {
 		const serializedState = localStorage.getItem('notesState')
@@ -14,6 +14,7 @@ const loadState = ()=>{
 	}
 }
 
+// Save Data to  LocalStorage
 
 const saveState = state =>{
 	try {
@@ -24,7 +25,7 @@ const saveState = state =>{
 	}
 }
 
-
+//Initial State
 const initialState = loadState() || {
 	categories: [
 		
@@ -35,7 +36,7 @@ const initialState = loadState() || {
 const NotesSlice = createSlice({
 	name: 'notes',
 	initialState,
-	reducers: {
+	reducers: {         //REDUCERS  
 		addCategory : (state,action) =>{
 			const categoryName = action.payload;
 			const existingCategory = state.categories.find(cat => cat.title === categoryName);
@@ -111,7 +112,7 @@ const NotesSlice = createSlice({
 			const categoryId = action.payload
 
 			state.categories = state.categories.filter(categ=> categ.id !==categoryId)
-		}
+		}  //Not Impemented in Code
 	},
 });
 
@@ -122,6 +123,6 @@ export const {
 	noteform,
 	deleteNote,
 	deleteCategory,
-  } = NotesSlice.actions;
+  } = NotesSlice.actions;   //Exporting Reducer Actions
   
   export default NotesSlice.reducer;

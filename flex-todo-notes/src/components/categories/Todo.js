@@ -13,7 +13,8 @@ import SecondaryButton from '../UI/SecondaryButton';
 import { AiOutlineSearch } from 'react-icons/ai'; // Import the search icon
 
 const Todo = () => {
-	const [categoryId, setCategoryId] = useState('');
+
+	const [categoryId, setCategoryId] = useState(''); //Get the updated CategoryId state
 	const [selectedNote, setSelectedNote] = useState(null); // Add selectedNote state
 	const [filterValue, setFilterValue] = useState(''); // Add filter state
 
@@ -22,11 +23,11 @@ const Todo = () => {
 
 	const dispatch = useDispatch();
 	const handleNoteSubmit = (id) => {
-		setCategoryId(id);
+		setCategoryId(id);  //Pass Function to Category List and Category Item to get ID
 	};
 	const showNote = useSelector((state) => state.todo.noteform);
 
-	const createNoteForm = () => {
+	const createNoteForm = () => {  //DISPATCH ACTION TO OPEN NOT FORM
 		dispatch(
 			noteform({
 				notes: showNoteForm,
@@ -36,15 +37,15 @@ const Todo = () => {
 	};
 
 	const handleNoteClick = (note) => {
-		setSelectedNote(note);
+		setSelectedNote(note);  //GET NOTE DETAILS
 	};
 
-	const handleDeletionComplete = () => {
+	const onNoteDetailsComplete = () => {
 		setSelectedNote(null); // Set selectedNote to null when deletion is completed
 	};
 
 	const handleFilterChange = (e) => {
-		setFilterValue(e.target.value);
+		setFilterValue(e.target.value); //GET FILTERED VALUE FROM FILTER INPUT
 	  };
 	
 
@@ -55,7 +56,7 @@ const Todo = () => {
 				<Card>
 					<div className=' flex flex-col gap-4   p-2  items-center md:flex-row  md:justify-between md:items-stretch  bg-gray-200   w-full  h-[90vh] '>
 						<div className=' flex flex-col items-center py-2    justify-center w-full max-w-[23.125rem]  bg-white     border-2 rounded-md '>
-							<CategoryList handleNoteSubmit={handleNoteSubmit} />
+							<CategoryList   handleNoteSubmit={handleNoteSubmit} onNoteDetailsComplete={onNoteDetailsComplete} selectedCategoryId={categoryId} />
 							{form && <CategoryForm />}
 						</div>
 						<div className=' flex flex-col   items-center w-[100%]   bg-white  border-2 '>
@@ -84,7 +85,7 @@ const Todo = () => {
 									)}
 								</div>
 
-								{showNote && <NoteForm categoryId={categoryId} />}
+								{showNote && <NoteForm onClick={createNoteForm} categoryId={categoryId}  />}
 								{!showNote && (
 									<Notes
 										categoryId={categoryId}
@@ -97,16 +98,23 @@ const Todo = () => {
 						{selectedNote && (
 							<div className='flex flex-col items-start py-2 px-5    w-[100%] lg:min-w-[63.125rem]    bg-white     border-2 rounded-md '>
 								<div className='flex flex-row  w-fit lg:w-[100%] justify-between gap-5'>
-									<div className='flex w-full justify-start gap-5'><SecondaryButton width="7.5rem"  color='1264A3' />
-								<SecondaryButton width="7.5rem"  color='1264A3' />
-								<SecondaryButton width="7.5rem" color='1264A3' /></div>
+									<div className=' hidden lg:flex w-full justify-start gap-5'><SecondaryButton className='bg-[#1264A3] max-w-[7.5rem]' />
+								<SecondaryButton className='bg-[#1264A3] max-w-[7.5rem]'  />
+								<SecondaryButton className='bg-[#71CF48] max-w-[7.5rem]'  /></div>
+
+								<div className=' hidden lg:flex w-full justify-end gap-5'><SecondaryButton className='bg-[#1264A3] max-w-[2rem]' />
+								<SecondaryButton className='bg-[#1264A3] max-w-[2rem]'  />
+								<SecondaryButton className='bg-[#1264A3] max-w-[2rem]'  /></div>
+								
+
+							
 								
 								</div>
 									
 								<NoteDetails
 									note={selectedNote}
 									categoryId={categoryId}
-									onDeletionComplete={handleDeletionComplete}
+									onNoteDetailsComplete={onNoteDetailsComplete}
 								/>{' '}
 							</div>
 						)}

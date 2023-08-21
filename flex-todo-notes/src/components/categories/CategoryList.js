@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useRef} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ButtonAdd from '../UI/ButtonAdd';
 import { uiActions } from '../../store/slices/uiSlice';
@@ -9,12 +9,12 @@ const CategoryList = (props) => {
 
 	const categoryList = categories.map((category) => {
 		return (
-			<CategoryItem
+			<CategoryItem 
 				handleNoteSubmit={props.handleNoteSubmit}
 				key={category.id}
 				id={category.id}
 				title={category.title}
-				note={category.notes}
+				isSelected={props.selectedCategoryId===category.id}
 			/>
 		);
 	});
@@ -26,7 +26,7 @@ const CategoryList = (props) => {
 	return (
 		<React.Fragment>
 			<ButtonAdd text={'Create Category'} onClick={onAddCategoryHandler} />
-			<ul className='w-[100%] mt-1 text-center md:text-left overflow-y-auto flex flex-col items-center  overflow-x-hidden overscroll-auto'>
+			<ul   onClick={props.onNoteDetailsComplete} className='w-[100%] mt-1 text-center md:text-left overflow-y-auto flex flex-col items-center  overflow-x-hidden overscroll-auto'>
 				{categoryList}
 			</ul>
 		</React.Fragment>
