@@ -55,7 +55,7 @@ const Todo = () => {
 				<Header />
 				<Card>
 					<div className=' flex flex-col gap-4   p-2  items-center md:flex-row  md:justify-between md:items-stretch  bg-gray-200   w-full  h-[90vh] '>
-						<div className=' flex flex-col items-center py-2    justify-center w-full max-w-[23.125rem]  bg-white     border-2 rounded-md '>
+						<div className=' flex flex-col items-center py-2    justify-start  w-full max-w-[23.125rem]  bg-white     border-2 rounded-md '>
 							<CategoryList   handleNoteSubmit={handleNoteSubmit} onNoteDetailsComplete={onNoteDetailsComplete} selectedCategoryId={categoryId} />
 							{form && <CategoryForm />}
 						</div>
