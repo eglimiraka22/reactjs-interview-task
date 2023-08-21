@@ -98,11 +98,11 @@ const Todo = () => {
 						{selectedNote && (
 							<div className='flex flex-col items-start py-2 px-5    w-[100%] lg:min-w-[63.125rem]    bg-white     border-2 rounded-md '>
 								<div className='flex flex-row  w-fit lg:w-[100%] justify-between gap-5'>
-									<div className=' hidden lg:flex w-full justify-start gap-5'><SecondaryButton className='bg-[#1264A3] max-w-[7.5rem]' />
+									<div className=' hidden xl:flex w-full justify-start gap-5'><SecondaryButton className='bg-[#1264A3] max-w-[7.5rem]' />
 								<SecondaryButton className='bg-[#1264A3] max-w-[7.5rem]'  />
 								<SecondaryButton className='bg-[#71CF48] max-w-[7.5rem]'  /></div>
 
-								<div className=' hidden lg:flex w-full justify-end gap-5'><SecondaryButton className='bg-[#1264A3] max-w-[2rem]' />
+								<div className=' hidden xl:flex w-full justify-end gap-5'><SecondaryButton className='bg-[#1264A3] max-w-[2rem]' />
 								<SecondaryButton className='bg-[#1264A3] max-w-[2rem]'  />
 								<SecondaryButton className='bg-[#1264A3] max-w-[2rem]'  /></div>
 								

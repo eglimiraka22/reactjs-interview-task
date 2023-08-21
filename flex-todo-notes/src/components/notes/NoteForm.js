@@ -54,7 +54,7 @@ const NoteForm = (props) => {
   return (
     <div className='flex flex-col w-[100%] relative justify-center items-start h-full  lg:h-[85vh] py-2 bg-white '>
       <div className='flex flex-row  w-fit lg:w-[100%] justify-between gap-5'>
-									<div className=' hidden lg:flex w-full justify-start gap-5'><SecondaryButton className='bg-[#1264A3] max-w-[7.5rem]' />
+									<div className=' hidden xl:flex w-full justify-start gap-5'><SecondaryButton className='bg-[#1264A3] max-w-[7.5rem]' />
 								<SecondaryButton className='bg-[#1264A3] max-w-[7.5rem]'  />
 								<SecondaryButton className='bg-[#71CF48] max-w-[7.5rem]'  /></div>
 
